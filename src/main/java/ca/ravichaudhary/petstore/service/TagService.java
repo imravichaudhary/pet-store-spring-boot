@@ -25,9 +25,8 @@ public class TagService {
 		return tagRepository.save(tag);
 	}
 
-	public Tag getPet(long tagId) {
+	public Tag getTag(long tagId) {
 		return tagRepository.findOne(tagId);
-	//	return pets.stream().filter(p -> p.getId() == petId).findFirst().get();
 	}
 
 	public void deleteTag(long tagId) {

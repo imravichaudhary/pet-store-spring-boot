@@ -11,34 +11,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ca.ravichaudhary.petstore.model.Pet;
-import ca.ravichaudhary.petstore.service.PetService;
+import ca.ravichaudhary.petstore.model.Tag;
+import ca.ravichaudhary.petstore.service.TagService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(value = "/pet", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-public class PetController {
-
+@RequestMapping(value = "/tag", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+public class TagController {
+	
 	@Autowired
-	private PetService petService;
-
+	private TagService tagService;
+	
 	@RequestMapping("")
-	public List<Pet> getAllPets() {
-		return petService.getAllPets();
+	public List<Tag> getAllTags(){
+		return tagService.getAllTags();
 	}
-
-	@RequestMapping("/{petId}")
-	public Pet getPet(@PathVariable long petId) {
-		return petService.getPet(petId);
+	
+	@RequestMapping("/{tagId}")
+	public Tag getTag(@PathVariable long tagId){
+		return tagService.getTag(tagId);
 	}
-
+	
 	@RequestMapping(method = RequestMethod.POST, value = "")
-	public void savePet(@RequestBody Pet pet) {
-		petService.savePet(pet);
+	public void saveTag(@RequestBody Tag tag){
+		tagService.saveTag(tag);
 	}
-
-	@RequestMapping(method = RequestMethod.DELETE, value = "/{petId}")
-	public void deletePet(@PathVariable long petId) {
-		petService.deletePet(petId);
+	
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{tagId}")
+	public void deleteTag(@PathVariable long tagId){
+		tagService.deleteTag(tagId);
 	}
 }

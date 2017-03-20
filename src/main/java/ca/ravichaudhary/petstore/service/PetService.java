@@ -38,7 +38,6 @@ public class PetService {
 
 	public Pet getPet(long petId) {
 		return petRepository.findOne(petId);
-	//	return pets.stream().filter(p -> p.getId() == petId).findFirst().get();
 	}
 
 	public void deletePet(long petId) {

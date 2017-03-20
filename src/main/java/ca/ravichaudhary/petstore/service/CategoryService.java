@@ -15,7 +15,7 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
-	public List<Category> getAllPets() {
+	public List<Category> getAllCategorys() {
 		List<Category> categorys = new ArrayList<>();
 		categoryRepository.findAll().forEach(categorys::add);
 		return categorys;
@@ -27,7 +27,6 @@ public class CategoryService {
 
 	public Category getCategory(long categoryId) {
 		return categoryRepository.findOne(categoryId);
-	//	return pets.stream().filter(p -> p.getId() == petId).findFirst().get();
 	}
 
 	public void deleteCategory(long categoryId) {
